@@ -18,9 +18,13 @@ $imageData = array();
 // 从起始索引开始获取指定数量的图片数据
 for ($i = $start; $i < $start + $perPage && $i < count($files); $i++) {
     $file = $files[$i];
-    if ($file !== '.' && $file !== '..') {
-        $imagePath = $folder . '/' . $file;
-        $imageData[] = array('src' => $imagePath);
+    if(strpos($file, '.'))
+    {
+        if ($file !== '.' && $file !== '..')
+        {
+            $imagePath = $folder . '/' . $file;
+            $imageData[] = array('src' => $imagePath);
+        }
     }
 }
 
